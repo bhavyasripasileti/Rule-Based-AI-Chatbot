@@ -171,7 +171,7 @@ The API never crashes on bad input. Here's how each failure mode is handled:
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/bhavyasripasileti@gmail.com.git
+git clone https://github.com/bhavyasripasileti/Rule-Based-AI-Chatbot.git
 cd llm-extraction-api
 
 # 2. Create a virtual environment
