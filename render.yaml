@@ -1,0 +1,39 @@
+# render.yaml — Infrastructure-as-Code for Render deployment.
+#
+# This file tells Render exactly how to deploy the API.
+# Commit it to your repo — Render reads it automatically.
+#
+# HOW TO DEPLOY:
+#   1. Push this repo to GitHub
+#   2. Go to https://render.com → New → Web Service
+#   3. Connect your GitHub repo
+#   4. Render will detect this file and auto-configure
+#   5. Add GROQ_API_KEY in the Render dashboard (Environment tab)
+#   6. Deploy!
+
+services:
+  - type: web
+    name: llm-extraction-api
+    runtime: python
+    region: oregon              # Choose closest to your users
+    plan: free                  # Free tier is fine for assessment demo
+
+    # Build command: install all dependencies
+    buildCommand: pip install -r requirements.txt
+
+    # Start command: run the FastAPI app with uvicorn
+    # --host 0.0.0.0  → listen on all interfaces (required for Render)
+    # --port $PORT    → Render sets the PORT env var dynamically
+    # --workers 1     → Free tier: 1 worker is appropriate
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1
+
+    # Health check: Render pings this to confirm the app is live
+    healthCheckPath: /health
+
+    # Environment variables — GROQ_API_KEY must be set in Render dashboard
+    # Do NOT put the actual key here — this file is committed to git!
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false             # sync:false = "set manually in dashboard, not here"
+      - key: PYTHON_VERSION
+        value: "3.11.0"

@@ -1,0 +1,21 @@
+# requirements.txt
+# Pinned versions ensure reproducible builds on Render.
+# Run: pip install -r requirements.txt
+
+# Web framework
+fastapi==0.115.5
+
+# ASGI server (runs FastAPI in production)
+uvicorn[standard]==0.32.1
+
+# Data validation and serialisation
+pydantic==2.10.3
+
+# Groq official SDK (handles auth, retries, API calls)
+groq==0.13.0
+
+# Environment variable loading from .env files
+python-dotenv==1.0.1
+
+# HTTP client (used internally by Groq SDK, listed for explicitness)
+httpx==0.28.1

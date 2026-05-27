@@ -1,0 +1,27 @@
+[
+  {
+    "id": "sample_1_clear_invoice",
+    "description": "A clear, well-formatted invoice — expect high confidence on all fields",
+    "text": "INVOICE\nVendor: Swiggy India Pvt. Ltd.\nInvoice Number: INV-2024-SW-00841\nDate: 15th November 2024\nItem: Food delivery - Biryani combo meal\nAmount: ₹850.00\nCurrency: INR\nCategory: Food & Dining\nThank you for your order!"
+  },
+  {
+    "id": "sample_2_partial_data",
+    "description": "Partial data — some fields missing, expect mixed confidence",
+    "text": "Receipt from TechZone Electronics. You purchased a USB-C laptop charger. Total charged: $49.99. Transaction ref: TXN-88821. Thanks for shopping with us."
+  },
+  {
+    "id": "sample_3_ambiguous_text",
+    "description": "Ambiguous, informal text — expect lower confidence scores",
+    "text": "Hey, got the bill from last night. Around 2000 bucks for the team dinner. Not sure exactly which restaurant it was, maybe Spice Garden? Anyway, we need to reimburse this."
+  },
+  {
+    "id": "sample_4_international_invoice",
+    "description": "International invoice in EUR — tests currency and date format handling",
+    "text": "Rechnung / Invoice\nLieferant: Deutsche Cloud GmbH\nRechnungsnummer: DE-2024-10987\nDatum: 01.12.2024\nLeistung: Monthly cloud hosting - Pro Plan\nBetrag: EUR 299.00\nFaelligkeitsdatum: 15.12.2024"
+  },
+  {
+    "id": "sample_5_garbage_input",
+    "description": "Garbage/nonsense input — tests graceful handling, expect all null or very low confidence",
+    "text": "asdfgh 1234 !!!! random text here nothing to extract lorem ipsum dolor sit amet consectetur"
+  }
+]

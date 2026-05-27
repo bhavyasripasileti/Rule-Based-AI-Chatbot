@@ -1,0 +1,240 @@
+{
+  "generated_at": "2026-05-27T10:18:43.831736+00:00",
+  "model": "llama-3.3-70b-versatile",
+  "provider": "Groq",
+  "total_samples": 5,
+  "successful": 5,
+  "failed": 0,
+  "results": [
+    {
+      "sample_id": "sample_1_clear_invoice",
+      "description": "A clear, well-formatted invoice — expect high confidence on all fields",
+      "input_text": "INVOICE\nVendor: Swiggy India Pvt. Ltd.\nInvoice Number: INV-2024-SW-00841\nDate: 15th November 2024\nItem: Food delivery - Biryani combo meal\nAmount: ₹850.00\nCurrency: INR\nCategory: Food & Dining\nThank you for your order!",
+      "output": {
+        "review_required": false,
+        "fields": {
+          "vendor_name": {
+            "value": "Swiggy India Pvt. Ltd.",
+            "confidence": 0.95,
+            "needs_review": false
+          },
+          "amount": {
+            "value": "850.00",
+            "confidence": 0.92,
+            "needs_review": false
+          },
+          "currency": {
+            "value": "INR",
+            "confidence": 0.98,
+            "needs_review": false
+          },
+          "date": {
+            "value": "15th November 2024",
+            "confidence": 0.95,
+            "needs_review": false
+          },
+          "category": {
+            "value": "Food & Dining",
+            "confidence": 0.9,
+            "needs_review": false
+          },
+          "description": {
+            "value": "Food delivery - Biryani combo meal",
+            "confidence": 0.88,
+            "needs_review": false
+          },
+          "invoice_id": {
+            "value": "INV-2024-SW-00841",
+            "confidence": 0.96,
+            "needs_review": false
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "sample_id": "sample_2_partial_data",
+      "description": "Partial data — some fields missing, expect mixed confidence",
+      "input_text": "Receipt from TechZone Electronics. You purchased a USB-C laptop charger. Total charged: $49.99. Transaction ref: TXN-88821. Thanks for shopping with us.",
+      "output": {
+        "review_required": true,
+        "fields": {
+          "vendor_name": {
+            "value": "TechZone Electronics",
+            "confidence": 0.95,
+            "needs_review": false
+          },
+          "amount": {
+            "value": "49.99",
+            "confidence": 0.98,
+            "needs_review": false
+          },
+          "currency": {
+            "value": "USD",
+            "confidence": 0.92,
+            "needs_review": false
+          },
+          "date": {
+            "value": null,
+            "confidence": 0.0,
+            "needs_review": true
+          },
+          "category": {
+            "value": "Electronics",
+            "confidence": 0.85,
+            "needs_review": false
+          },
+          "description": {
+            "value": "USB-C laptop charger",
+            "confidence": 0.96,
+            "needs_review": false
+          },
+          "invoice_id": {
+            "value": "TXN-88821",
+            "confidence": 0.97,
+            "needs_review": false
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "sample_id": "sample_3_ambiguous_text",
+      "description": "Ambiguous, informal text — expect lower confidence scores",
+      "input_text": "Hey, got the bill from last night. Around 2000 bucks for the team dinner. Not sure exactly which restaurant it was, maybe Spice Garden? Anyway, we need to reimburse this.",
+      "output": {
+        "review_required": true,
+        "fields": {
+          "vendor_name": {
+            "value": "Spice Garden",
+            "confidence": 0.68,
+            "needs_review": true
+          },
+          "amount": {
+            "value": "2000",
+            "confidence": 0.82,
+            "needs_review": false
+          },
+          "currency": {
+            "value": null,
+            "confidence": 0.0,
+            "needs_review": true
+          },
+          "date": {
+            "value": "last night",
+            "confidence": 0.5,
+            "needs_review": true
+          },
+          "category": {
+            "value": "Food",
+            "confidence": 0.85,
+            "needs_review": false
+          },
+          "description": {
+            "value": "team dinner",
+            "confidence": 0.78,
+            "needs_review": false
+          },
+          "invoice_id": {
+            "value": null,
+            "confidence": 0.0,
+            "needs_review": true
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "sample_id": "sample_4_international_invoice",
+      "description": "International invoice in EUR — tests currency and date format handling",
+      "input_text": "Rechnung / Invoice\nLieferant: Deutsche Cloud GmbH\nRechnungsnummer: DE-2024-10987\nDatum: 01.12.2024\nLeistung: Monthly cloud hosting - Pro Plan\nBetrag: EUR 299.00\nFaelligkeitsdatum: 15.12.2024",
+      "output": {
+        "review_required": false,
+        "fields": {
+          "vendor_name": {
+            "value": "Deutsche Cloud GmbH",
+            "confidence": 0.95,
+            "needs_review": false
+          },
+          "amount": {
+            "value": "299.00",
+            "confidence": 0.98,
+            "needs_review": false
+          },
+          "currency": {
+            "value": "EUR",
+            "confidence": 0.97,
+            "needs_review": false
+          },
+          "date": {
+            "value": "01.12.2024",
+            "confidence": 0.92,
+            "needs_review": false
+          },
+          "category": {
+            "value": "Cloud Hosting",
+            "confidence": 0.85,
+            "needs_review": false
+          },
+          "description": {
+            "value": "Monthly cloud hosting - Pro Plan",
+            "confidence": 0.9,
+            "needs_review": false
+          },
+          "invoice_id": {
+            "value": "DE-2024-10987",
+            "confidence": 0.96,
+            "needs_review": false
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "sample_id": "sample_5_garbage_input",
+      "description": "Garbage/nonsense input — tests graceful handling, expect all null or very low confidence",
+      "input_text": "asdfgh 1234 !!!! random text here nothing to extract lorem ipsum dolor sit amet consectetur",
+      "output": {
+        "review_required": true,
+        "fields": {
+          "vendor_name": {
+            "value": null,
+            "confidence": 0.0,
+            "needs_review": true
+          },
+          "amount": {
+            "value": null,
+            "confidence": 0.0,
+            "needs_review": true
+          },
+          "currency": {
+            "value": null,
+            "confidence": 0.0,
+            "needs_review": true
+          },
+          "date": {
+            "value": null,
+            "confidence": 0.0,
+            "needs_review": true
+          },
+          "category": {
+            "value": null,
+            "confidence": 0.0,
+            "needs_review": true
+          },
+          "description": {
+            "value": null,
+            "confidence": 0.0,
+            "needs_review": true
+          },
+          "invoice_id": {
+            "value": null,
+            "confidence": 0.0,
+            "needs_review": true
+          }
+        }
+      },
+      "status": "success"
+    }
+  ]
+}
