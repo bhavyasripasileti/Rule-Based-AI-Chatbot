@@ -12,9 +12,9 @@ A production-quality REST API that extracts structured fields from unstructured 
 
 | Endpoint | URL |
 |---|---|
-| API Base | `https://YOUR-APP-NAME.onrender.com` |
-| Interactive Docs | `https://YOUR-APP-NAME.onrender.com/docs` |
-| Health Check | `https://YOUR-APP-NAME.onrender.com/health` |
+| API Base | `https://rule-based-ai-chatbot.onrender.com` |
+| Interactive Docs | `https://rule-based-ai-chatbot.onrender.com/docs` |
+| Health Check | `https://rule-based-ai-chatbot.onrender.com/health` |
 
 ---
 
