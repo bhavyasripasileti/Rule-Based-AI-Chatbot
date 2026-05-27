@@ -28,7 +28,7 @@ Accepts any raw unstructured text (invoice, receipt, email, note) and returns:
 - **Consistent JSON responses** — even for garbage input
 
 ```bash
-curl -X POST https://YOUR-APP.onrender.com/extract \
+curl -X POST https://rule-based-ai-chatbot.onrender.com/extract \
   -H "Content-Type: application/json" \
   -d '{"text": "Invoice from Swiggy. Order #INV-2024-001. Amount: ₹850. Date: Nov 15 2024."}'
 ```
@@ -226,7 +226,7 @@ This runs all 5 sample inputs through the live pipeline and saves results to `re
 1. **Push to GitHub**
    ```bash
    git init && git add . && git commit -m "Initial commit"
-   git remote add origin https://github.com/YOUR_USERNAME/llm-extraction-api.git
+   git remote add origin https://github.com/bhavyasripasileti/Rule-Based-AI-Chatbot.git
    git push -u origin main
    ```
 
@@ -243,7 +243,7 @@ This runs all 5 sample inputs through the live pipeline and saves results to `re
 4. **Deploy**
    - Click "Deploy" — Render runs `pip install -r requirements.txt` then starts the server
    - Wait ~2 minutes for the first deploy
-   - Your API is live at `https://YOUR-APP-NAME.onrender.com`
+   - Your API is live at `https://rule-based-ai-chatbot.onrender.com`
 
 ### Environment Variables
 
