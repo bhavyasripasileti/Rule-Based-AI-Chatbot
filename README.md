@@ -171,7 +171,7 @@ The API never crashes on bad input. Here's how each failure mode is handled:
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/llm-extraction-api.git
+git clone https://github.com/bhavyasripasileti@gmail.com.git
 cd llm-extraction-api
 
 # 2. Create a virtual environment
